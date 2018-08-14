@@ -1,0 +1,92 @@
+---
+title: "fars: Functions for Fatality Analysis Reporting System Files"
+author: "Thomas Adamson"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using fars: Functions for Fatality Analysis Reporting System Files}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>")
+```
+
+The fars package offers functions for reading, summarising and visualising data from .csv.bz2 files containing data from the US National Highway Traffic Safety Administration's [Fatality Analysis Reporting System](https://www.nhtsa.gov/research-data/fatality-analysis-reporting-system-fars), a nationwide census providing the American public yearly data regarding fatal injuries suffered in motor vehicle traffic crashes.  
+
+
+The raw data can be downloaded from ftp://ftp.nhtsa.dot.gov/fars/ However this data is not in .bz2 files (the fars package is written for .csv.bz2 files, so this package is effectively useless without unpacking the csv files that are available (or converting files for those years where csv files are not available) and placing them in .bz2 files before use. 
+
+Examples of these files are contained in the data directory of this package.
+
+The make_filename creates a string or strings of the shape 'accident_<year>.csv.bz2' from a numeric. 
+```{r}
+filenames <- make_filename(year = c(2013, 2014, 2015))
+filenames
+```
+
+
+##fars_read
+
+The fars_read function reads the file for a specific filename into a tibble.
+```{r, eval = FALSE}
+fars2013 <- fars_read(filename = "accident_2013.csv.bz2")
+head(fars2013)
+```
+
+```{r, warning = FALSE, echo = FALSE}
+setwd(file.path(normalizePath('..', winslash = '/'), 'extdata'))
+
+fars2013 <- fars_read(filename = "accident_2013.csv.bz2")
+head(fars2013)
+```
+
+
+##fars_read_years(filename)
+
+Multiple years can be read from the working directory using fars_read_years on a numeric yielding a list of tibbles.
+```{r, eval = FALSE}
+fars2013 <- fars_read(filename = "accident_2013.csv.bz2")
+head(fars2013)
+```
+
+```{r, warning = FALSE, echo = FALSE}
+setwd(file.path(normalizePath('..', winslash = '/'), 'extdata'))
+
+fars_list <- fars_read_years(years = c(2013, 2014, 2015))
+
+lapply(fars_list, head)
+```
+
+
+##fars_summarize_years(years)
+
+Entering a numeric into fars_summarize_years can provide a tibble or list of tibbles which contain the MONTH Column of the read file or files and an appended year column.  
+```{r, eval = FALSE}
+fars_summary_list <- fars_summarize_years(years = c(2013, 2014, 2015))
+lapply(fars_summary_list, head)
+```
+
+```{r, warning = FALSE, echo = FALSE}
+setwd(file.path(normalizePath('..', winslash = '/'), 'extdata'))
+
+fars_summary_list <- fars_summarize_years(years = c(2013, 2014, 2015))
+lapply(fars_summary_list, head)
+```
+
+
+##fars_map_state(state.num, year)
+
+fars_map_state will draw data from a single year onto the state indicated by numerical id. The following draws data from Texas onto the Texas state map.
+```{r, eval = FALSE}
+fars_map_state(state.num = 1 ,  year = 2013)
+```
+
+```{r, warning = FALSE, echo = FALSE}
+setwd(file.path(normalizePath('..', winslash = '/'), 'extdata'))
+
+fars_map_state(state.num = 48,  year = 2013)
+```
