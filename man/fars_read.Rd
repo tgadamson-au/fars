@@ -15,7 +15,8 @@ Returns a tibble of the csv
 \description{
 Reads data from bzipped csv files from the US National Highway Traffic Safety Administrations's
 Fatality Analysis Reporting System
-
+}
+\note{
 Will create an error if the file does not exist at the path
 }
 \examples{

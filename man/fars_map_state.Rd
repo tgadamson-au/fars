@@ -14,7 +14,8 @@ working directory}
 }
 \description{
 Draws statemap and plots fatal accidents from fars file for specified year and state.
-
+}
+\note{
 If state number does not exist in file will generate an error
 If no records for state exist will write message and return an a invisible(NULL)
 }

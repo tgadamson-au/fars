@@ -15,12 +15,14 @@ Returns string(a) "accident_<year>.csv.bz2" with intergerised input at '<year>'
 }
 \description{
 Coerces input to integer(s) and inserts into "accident_<year>.csv.bz2" at '<year>' returning the result.
-
+}
+\note{
 If input cannot be coerced to integer(s) warning will result and NA(s) will be returned.
 }
 \examples{
+\dontrun{
 make_filename(2018)
 make_filename('2018')
-
+}
 
 }

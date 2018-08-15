@@ -16,7 +16,8 @@ Returns a list of tibbles containing the MONTH Column of the read file and an ap
 \description{
 Takes a list or vector of years and returns a list of tibbles containing the
 MONTH column for corresponding fars files in the working directory with an appended year column.
-
+}
+\note{
 If file does not exist for corresponding year a warning will be generated and NULL returned for that year
 }
 \examples{

@@ -16,7 +16,8 @@ A tibble contain number of records month by year
 \description{
 Takes a list or vector of years and returns a tibble with number of records month by year for
 corresponding fars csv files in the working directory.
-
+}
+\note{
 If file does not exist for corresponding year a warning will be generated.
 }
 \examples{
