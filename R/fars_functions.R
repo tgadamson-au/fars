@@ -135,7 +135,7 @@ fars_summarize_years <- function(years) {
 #' @note If state number does not exist in file will generate an error
 #' If no records for state exist will write message and return an a invisible(NULL)
 #'
-#' @param state Numeric, integer or numeric/integer string corresponding with a US state code.
+#' @param state.num Numeric, integer or numeric/integer string corresponding with a US state code.
 #' @param year Numeric, integer or numeric/integer string corresponding to "accident_<year>.csv.bz2" file in the
 #' working directory
 #'
