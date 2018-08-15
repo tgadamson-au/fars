@@ -30,7 +30,6 @@ fars_read <- function(filename) {
   dplyr::tbl_df(data)
 }
 
-
 #' @title Create "accident_<year>.csv.bz2" filename string
 #'
 #' @description Coerces input to integer(s) and inserts into "accident_<year>.csv.bz2" at '<year>' returning the result.
