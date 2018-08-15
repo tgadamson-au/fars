@@ -13,6 +13,8 @@ vignette: >
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>")
+
+library(fars)
 ```
 
 The fars package offers functions for reading, summarising and visualising data from .csv.bz2 files containing data from the US National Highway Traffic Safety Administration's [Fatality Analysis Reporting System](https://www.nhtsa.gov/research-data/fatality-analysis-reporting-system-fars), a nationwide census providing the American public yearly data regarding fatal injuries suffered in motor vehicle traffic crashes.  
@@ -32,14 +34,7 @@ filenames
 ##fars_read
 
 The fars_read function reads the file for a specific filename into a tibble.
-```{r, eval = FALSE}
-fars2013 <- fars_read(filename = "accident_2013.csv.bz2")
-head(fars2013)
-```
-
-```{r, warning = FALSE, echo = FALSE}
-setwd(file.path(normalizePath('..', winslash = '/'), 'extdata'))
-
+```{r}
 fars2013 <- fars_read(filename = "accident_2013.csv.bz2")
 head(fars2013)
 ```
@@ -48,45 +43,26 @@ head(fars2013)
 ##fars_read_years(filename)
 
 Multiple years can be read from the working directory using fars_read_years on a numeric yielding a list of tibbles.
-```{r, eval = FALSE}
-fars2013 <- fars_read(filename = "accident_2013.csv.bz2")
-head(fars2013)
-```
-
-```{r, warning = FALSE, echo = FALSE}
-setwd(file.path(normalizePath('..', winslash = '/'), 'extdata'))
-
-fars_list <- fars_read_years(years = c(2013, 2014, 2015))
-
-lapply(fars_list, head)
+```{r}
+fars_datalist <- fars_read_years(years = c(2013, 2014, 2015))
+lapply(fars_datalist, head)
 ```
 
 
 ##fars_summarize_years(years)
 
 Entering a numeric into fars_summarize_years can provide a tibble or list of tibbles which contain the MONTH Column of the read file or files and an appended year column.  
-```{r, eval = FALSE}
-fars_summary_list <- fars_summarize_years(years = c(2013, 2014, 2015))
-lapply(fars_summary_list, head)
-```
-
-```{r, warning = FALSE, echo = FALSE}
-setwd(file.path(normalizePath('..', winslash = '/'), 'extdata'))
-
-fars_summary_list <- fars_summarize_years(years = c(2013, 2014, 2015))
-lapply(fars_summary_list, head)
+```{r}
+fars_summarylist <- fars_summarize_years(years = c(2013, 2014, 2015))
+lapply(fars_summarylist, head)
 ```
 
 
 ##fars_map_state(state.num, year)
 
 fars_map_state will draw data from a single year onto the state indicated by numerical id. The following draws data from Texas onto the Texas state map.
-```{r, eval = FALSE}
-fars_map_state(state.num = 1 ,  year = 2013)
+```{r}
+fars_map_state(state.num = 48 ,  year = 2013)
 ```
 
-```{r, warning = FALSE, echo = FALSE}
-setwd(file.path(normalizePath('..', winslash = '/'), 'extdata'))
 
-fars_map_state(state.num = 48,  year = 2013)
-```

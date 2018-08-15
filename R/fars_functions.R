@@ -1,10 +1,9 @@
-
 #' @title Read csv file and return it as a tibble dataframe
 #'
 #' @description Reads data from bzipped csv files from the US National Highway Traffic Safety Administrations's
 #' Fatality Analysis Reporting System
 #'
-#' Will create an error if the file does not exist at the path
+#' @note Will create an error if the file does not exist at the path
 #'
 #' @param filename A filepath character string of a csv file to be read to a tibble
 #'
@@ -32,21 +31,21 @@ fars_read <- function(filename) {
 }
 
 
-#' @title Create "accident_%d.csv.bz2" filename string
+#' @title Create "accident_<year>.csv.bz2" filename string
 #'
 #' @description Coerces input to integer(s) and inserts into "accident_<year>.csv.bz2" at '<year>' returning the result.
 #'
-#' If input cannot be coerced to integer(s) warning will result and NA(s) will be returned.
+#' @note If input cannot be coerced to integer(s) warning will result and NA(s) will be returned.
 #'
 #' @param year A numeric, integer or numeric string that will be coerced to an integer and inserted into the
 #' "accident_<year>.csv.bz2" string at <year>.
 #'
 #' @return Returns string(a) "accident_<year>.csv.bz2" with intergerised input at '<year>'
 #'
-#' @examples
+#' @examples \dontrun{
 #' make_filename(2018)
 #' make_filename('2018')
-#'
+#' }
 #'
 #' @export
 
@@ -61,7 +60,7 @@ make_filename <- function(year) {
 #' @description Takes a list or vector of years and returns a list of tibbles containing the
 #' MONTH column for corresponding fars files in the working directory with an appended year column.
 #'
-#' If file does not exist for corresponding year a warning will be generated and NULL returned for that year
+#' @note If file does not exist for corresponding year a warning will be generated and NULL returned for that year
 #'
 #' @param years A list or vector of numerics, integers or numeric/integer strings to read "accident_<year>.csv.bz2"
 #'  files from the working directory.
@@ -100,7 +99,7 @@ fars_read_years <- function(years) {
 #' @description Takes a list or vector of years and returns a tibble with number of records month by year for
 #' corresponding fars csv files in the working directory.
 #'
-#' If file does not exist for corresponding year a warning will be generated.
+#' @note If file does not exist for corresponding year a warning will be generated.
 #'
 #' @param years A list or vector of numerics, integers or numeric/integer strings to read "accident_<year>.csv.bz2"
 #'  files from the working directory.
@@ -133,7 +132,7 @@ fars_summarize_years <- function(years) {
 #'
 #' @description Draws statemap and plots fatal accidents from fars file for specified year and state.
 #'
-#' If state number does not exist in file will generate an error
+#' @note If state number does not exist in file will generate an error
 #' If no records for state exist will write message and return an a invisible(NULL)
 #'
 #' @param state Numeric, integer or numeric/integer string corresponding with a US state code.

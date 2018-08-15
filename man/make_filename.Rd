@@ -2,7 +2,7 @@
 % Please edit documentation in R/fars_functions.R
 \name{make_filename}
 \alias{make_filename}
-\title{Create "accident_%d.csv.bz2" filename string}
+\title{Create "accident_<year>.csv.bz2" filename string}
 \usage{
 make_filename(year)
 }
