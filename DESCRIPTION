@@ -1,12 +1,20 @@
 Package: fars
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Functions for Fatal Analysis Reporting System
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: ArizonaStateUniversity@coursera
+Maintainer: Thomas Adamson <yourself@somewhere.net>
+Description: Functions for Fatal Analysis Reporting System
+
+The fars package offers functions for reading, summarising and visualising data from .csv.bz2 files containing data from the US National Highway Traffic Safety Administration's [Fatality Analysis Reporting System](https://www.nhtsa.gov/research-data/fatality-analysis-reporting-system-fars), a nationwide census providing the American public yearly data regarding fatal injuries suffered in motor vehicle traffic crashes.  
+
+The raw data can be downloaded from ftp://ftp.nhtsa.dot.gov/fars/ However this data is not in .bz2 files (the fars package is written for .csv.bz2 files, so this package is effectively useless without unpacking the csv files that are available (or converting files for those years where csv files are not available) and placing them in .bz2 files before use. 
+
+Examples of these files are contained in the extdata directory of this package.
+
+Read .csv.bz files
+Summarize
+License: GPL (>= 2)
 Encoding: UTF-8
 LazyData: true
 Suggests: knitr,

@@ -10,7 +10,7 @@ fars_map_state(state.num, year)
 \item{year}{Numeric, integer or numeric/integer string corresponding to "accident_<year>.csv.bz2" file in the
 working directory}
 
-\item{state}{Numeric, integer or numeric/integer string corresponding with a US state code.}
+\item{state.num}{Numeric, integer or numeric/integer string corresponding with a US state code.}
 }
 \description{
 Draws statemap and plots fatal accidents from fars file for specified year and state.

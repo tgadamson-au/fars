@@ -22,7 +22,11 @@ The fars package offers functions for reading, summarising and visualising data 
 
 The raw data can be downloaded from ftp://ftp.nhtsa.dot.gov/fars/ However this data is not in .bz2 files (the fars package is written for .csv.bz2 files, so this package is effectively useless without unpacking the csv files that are available (or converting files for those years where csv files are not available) and placing them in .bz2 files before use. 
 
-Examples of these files are contained in the data directory of this package.
+Examples of these files are contained in the extdata directory of this package.
+
+
+##make_filename
+
 
 The make_filename creates a string or strings of the shape 'accident_<year>.csv.bz2' from a numeric. 
 ```{r}
